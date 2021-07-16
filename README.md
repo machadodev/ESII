@@ -1,13 +1,13 @@
 # War I
 Trabalho de Engenharia de Software II
 
-*Alisson Weiss*
-*Carlos Eduardo*
-*Jorge Guimarães*
-*Hiaggo Bezerra*
-*Leonardo Machado*
-*Computer Science Graduation*
-*Federal Fluminense University*
+*Alisson Weiss*<br>
+*Carlos Eduardo*<br>
+*Jorge Guimarães*<br>
+*Hiaggo Bezerra*<br>
+*Leonardo Machado*<br>
+*Computer Science Graduation*<br>
+*Federal Fluminense University*<br>
 *Niteroi, 2021*
 
 ## Available Scripts
