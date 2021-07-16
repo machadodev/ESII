@@ -1,5 +1,14 @@
-# ESII
+# War I
 Trabalho de Engenharia de Software II
+
+*Alisson Weiss*
+*Carlos Eduardo*
+*Jorge Guimarães*
+*Hiaggo Bezerra*
+*Leonardo Machado*
+*Computer Science Graduation*
+*Federal Fluminense University*
+*Niteroi, 2021*
 
 ## Available Scripts
 
