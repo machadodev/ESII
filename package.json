@@ -19,7 +19,8 @@
     "test": "craco test --watchAll=false",
     "eslint:all": "npx eslint ./",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "watch:css": "postcss -w ./src/index.css -o ./src/App.css"
   },
   "eslintConfig": {
     "extends": [
@@ -52,7 +53,8 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.0",
-    "postcss": "^7",
+    "postcss": "^8",
+    "postcss-cli": "^8.3.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }

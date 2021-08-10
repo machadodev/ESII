@@ -3,13 +3,10 @@ import './App.css'
 
 function App () {
   return (
-    <div className="App">
-      <div className="p-10 bg-gray-400">
-        asd
+    <div className="App bg-black">
+      <div className="h-screen bg-war bg-cover bg-no-repeat bg-center brightness-50">
+      <p>learn react</p>
       </div>
-      <p>
-        Learn React
-      </p>
     </div>
   )
 }
