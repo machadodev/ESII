@@ -1,14 +1,18 @@
 import React from 'react'
-import Logo from '../components/Logo'
+import Menu from '../components/Menu'
 
 function Home () {
   return (
-    <div className="App bg-black">
-      <div className="flex h-screen bg-war bg-cover bg-no-repeat bg-center">
-        <div className="m-auto">
-          <Logo/>
-        </div>
-      </div>
+    <div className="App">
+      <section className="h-100">
+        <header className="container h-100">
+          <div className="d-flex align-items-center justify-content-center h-100">
+            <div className="d-flex flex-column">
+              <Menu/>
+            </div>
+          </div>
+        </header>
+      </section>
     </div>
   )
 }
