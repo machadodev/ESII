@@ -35,13 +35,12 @@ function Menu() {
         )}
       </div>
 
-      <div className="row pt-4">
-        <div className="col-md-12" align="center">
-          <ButtonWAR text="Jogar" />
-        </div>
+    <div className="row pt-4">
+      <div className="col-md-12" align="center">
+      <ButtonWAR text="Jogar" disabled={canPlay()}/>
       </div>
     </div>
   );
 }
 
-export default Menu;
+export default Menu
