@@ -5,6 +5,8 @@ import Logo from './Logo';
 import ButtonWAR from './ButtonWAR';
 import PlayerSelector from './PlayerSelector';
 
+const canPlay = () => false;
+
 function Menu() {
   return (
     <div className="container">
@@ -35,12 +37,13 @@ function Menu() {
         )}
       </div>
 
-    <div className="row pt-4">
-      <div className="col-md-12" align="center">
-      <ButtonWAR text="Jogar" disabled={canPlay()}/>
+      <div className="row pt-4">
+        <div className="col-md-12" align="center">
+          <ButtonWAR text="Jogar" disabled={canPlay()} />
+        </div>
       </div>
     </div>
   );
 }
 
-export default Menu
+export default Menu;
