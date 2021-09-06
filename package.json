@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false --passWithNoTests",
+    "test": "react-scripts test --watchAll=false --passWithNoTests --coverage",
     "lint": "eslint src --fix",
     "eject": "react-scripts eject",
     "prepare": "husky install",
@@ -32,7 +32,7 @@
     "**/*.js": [
       "prettier --write",
       "yarn lint",
-      "yarn test --bail --findRelatedTests --coverage"
+      "yarn test --bail --findRelatedTests"
     ]
   },
   "eslintConfig": {
@@ -55,6 +55,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^9",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.24.2",

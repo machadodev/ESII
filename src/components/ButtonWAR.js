@@ -3,9 +3,9 @@ import Button from 'react-bootstrap/Button';
 
 // or less ideally
 function ButtonWAR(props) {
-  const { text } = props;
+  const { text, disabled } = props;
   return (
-    <Button style={{ width: '24rem' }} className="btn btn-primary btn-lg">
+    <Button disabled={disabled} style={{ width: '24rem' }} className="btn btn-primary btn-lg">
       {text}
     </Button>
   );
