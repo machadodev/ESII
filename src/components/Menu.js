@@ -4,12 +4,16 @@ import Card from 'react-bootstrap/Card';
 import Logo from './Logo';
 import ButtonWAR from './ButtonWAR';
 import PlayerSelector from './PlayerSelector';
+import {
+  MAX_PLAYERS_IN_SESSION,
+  MIN_PLAYERS_TO_START_GAME,
+} from '../helper/CONSTANTS';
 
 class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      players: new Array(6),
+      players: new Array(MAX_PLAYERS_IN_SESSION),
     };
   }
 
@@ -41,7 +45,7 @@ class Menu extends React.Component {
       }
     });
 
-    return cnt >= 3 && hasHuman;
+    return cnt >= MIN_PLAYERS_TO_START_GAME && hasHuman;
   }
 
   render() {
