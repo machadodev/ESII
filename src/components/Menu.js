@@ -20,7 +20,13 @@ class Menu extends React.Component {
     this.setState({ players });
   };
 
-  canPlay({ players }) {
+  canPlay(props) {
+    if (!props) {
+      throw Error('props cannot be null');
+    }
+
+    const { players } = props;
+
     let hasHuman = false;
     let cnt = 0;
 

@@ -1,15 +1,24 @@
-// import React from 'react';
-// import { render } from '@testing-library/react';
-// import Menu from './Menu';
+import React from 'react';
+import Adapter from 'enzyme-adapter-react-16';
+import { shallow, configure } from 'enzyme';
+import Menu from './Menu';
 
-// test('teasd qwe sda', async () => {
-//   const { getByAltText } = await render(<Menu />);
+configure({ adapter: new Adapter() });
 
-//   const image = getByAltText('logo');
-//   expect(image).toBeInTheDocument();
-//   expect(image).toHaveAttribute('src', 'logo.png');
-// });
+describe('CanPlay tests', () => {
+  const wrapper = shallow(<Menu />);
 
-test('CanPlay', async () => {
-  // expect(Menu.canPlay(null)).toBe(false);
+  it('should throw exception when prop is null', async () => {
+    expect(() => wrapper.instance().canPlay(null)).toThrow(
+      'props cannot be null',
+    );
+  });
+
+  it('should return false when no player is passed', async () => {
+    const props = {
+      players: [{}],
+    };
+
+    expect(wrapper.instance().canPlay(props)).toBe(false);
+  });
 });
