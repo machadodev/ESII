@@ -32,7 +32,7 @@
     "**/*.js": [
       "prettier --write",
       "yarn lint",
-      "yarn test"
+      "yarn test --bail --findRelatedTests"
     ]
   },
   "eslintConfig": {
