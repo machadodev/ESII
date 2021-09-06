@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false --passWithNoTests",
+    "test": "react-scripts test --watchAll=false --passWithNoTests --coverage",
     "lint": "eslint src --fix",
     "eject": "react-scripts eject",
     "prepare": "husky install",
@@ -32,7 +32,7 @@
     "**/*.js": [
       "prettier --write",
       "yarn lint",
-      "yarn test --bail --findRelatedTests --coverage"
+      "yarn test --bail --findRelatedTests"
     ]
   },
   "eslintConfig": {
