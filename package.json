@@ -22,11 +22,18 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
-    "eslint:all": "npx eslint ./",
+    "test": "react-scripts test --watchAll=false --passWithNoTests",
+    "lint": "eslint src --fix",
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "watch:css": "postcss -w ./src/index.css -o ./src/App.css"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "prettier --write",
+      "yarn lint",
+      "yarn test"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -55,6 +62,7 @@
     "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.0",
+    "lint-staged": "^11.1.2",
     "prettier": "^2.3.2"
   }
 }
