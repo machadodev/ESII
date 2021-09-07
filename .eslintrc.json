@@ -21,6 +21,7 @@
       "react/prop-types": "off",
       "react/destructuring-assignment": "off",
       "react/jsx-one-expression-per-line": "off",
-      "class-methods-use-this": "off"
+      "class-methods-use-this": "off",
+      "linebreak-style": 0
     }
   }
