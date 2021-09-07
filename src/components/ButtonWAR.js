@@ -1,13 +1,20 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-
+import { Link } from 'react-router-dom';
 // or less ideally
 function ButtonWAR(props) {
   const { text, disabled } = props;
+
   return (
-    <Button disabled={disabled} style={{ width: '24rem' }} className="btn btn-primary btn-lg">
-      {text}
-    </Button>
+    <Link to="/game">
+      <Button
+        disabled={disabled}
+        style={{ width: '24rem' }}
+        className="btn btn-primary btn-lg"
+      >
+        {text}
+      </Button>
+    </Link>
   );
 }
 
