@@ -9,7 +9,7 @@ function GameManager(props) {
     <div key="gmnr">
       <ListGroup
         as="ul"
-        className="navbar-nav mr-auto sidenav anyClass players"
+        className="navbar-nav mr-auto sidenav nav-scrollable players"
         key="players"
       >
         {match.players.map((playerInfo) => (
