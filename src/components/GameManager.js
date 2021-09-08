@@ -6,7 +6,7 @@ function GameManager(props) {
   const { match } = props;
 
   return (
-    <div key="gmnr">
+    <div className="100vh">
       <ListGroup
         as="ul"
         className="navbar-nav mr-auto sidenav nav-scrollable players"
