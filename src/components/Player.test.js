@@ -1,11 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import Player from './Player';
+import { PLAYER_MATCH_INFO } from '../helper/CONSTANTS';
 
-test('Check if button has text', async () => {
-  const color = 'green';
-  const { getByText } = await render(<Player color={color} />);
+test('Check if Player card render correctly', async () => {
+  const playerInfo = {
+    id: 1,
+    color: PLAYER_MATCH_INFO.red,
+    playerType: 'human',
+  };
+  const { getByText } = await render(<Player playerInfo={playerInfo} />);
 
-  const player = getByText(`Player ${color}`);
+  const player = getByText(`Exército ${playerInfo.color.name}`);
   expect(player).toBeInTheDocument();
 });
