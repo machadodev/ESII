@@ -6,9 +6,9 @@ import { PLAYER_MATCH_INFO } from '../helper/CONSTANTS';
 function GameMap() {
   const match = {
     players: [
-      { id: 1, color: PLAYER_MATCH_INFO.red, playerType: 'human' },
-      { id: 2, color: PLAYER_MATCH_INFO.green, playerType: 'ia' },
-      { id: 3, color: PLAYER_MATCH_INFO.white, playerType: 'ia' },
+      { id: 1, color: PLAYER_MATCH_INFO.red, archetype: 'human' },
+      { id: 2, color: PLAYER_MATCH_INFO.green, archetype: 'ia' },
+      { id: 3, color: PLAYER_MATCH_INFO.white, archetype: 'ia' },
     ],
   };
 
@@ -19,6 +19,7 @@ function GameMap() {
           <div className="d-flex align-items-center justify-content-center h-100">
             <div className="d-flex flex-column">
               <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+                <h1 className="navbar-brand">War: Mapa do Brasil</h1>
                 <GameManager match={match} />
               </nav>
               <main className="content-wrapper">
