@@ -24,8 +24,6 @@ function Player(props) {
   ];
   return (
     <ListGroup.Item as="li" variant={playerInfo.color.variant}>
-      {/* TODO: Add EstadoFederacao */}
-
       <Container>
         <Row>
           <Col>
