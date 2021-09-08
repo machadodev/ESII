@@ -1,9 +1,10 @@
 import React from 'react';
+import { Image } from 'react-bootstrap';
 import ai from '../assets/images/icons/ai.png';
 import human from '../assets/images/icons/human.png';
 
 const img = function imgTag(altText, srcPath) {
-  return <img alt={altText} src={srcPath} width="16px" />;
+  return <Image alt={altText} src={srcPath} width="16px" />;
 };
 
 function PlayerIcon(props) {
