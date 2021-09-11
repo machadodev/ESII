@@ -248,9 +248,25 @@ const PLAYER_MATCH_INFO = {
   },
 };
 
+const OBJECTIVES = {
+  sul: {
+    title: 'Consquistar o Sul',
+    description: 'Dominar todos os estados da região Sul do Brasil.',
+  },
+  litoral: {
+    title: 'Conquistar o Litoral',
+    description: 'Dominar pelo menos 6 estados do litoral brasileiro.',
+  },
+  floresta: {
+    title: 'Conquistar a Floresta',
+    description: 'Dominar os estados do Amazonas, Pará, Acre e Mato Grosso.',
+  },
+};
+
 export {
   ESTADOS_DA_FEDERACAO,
   MAX_PLAYERS_IN_SESSION,
   MIN_PLAYERS_TO_START_GAME,
   PLAYER_MATCH_INFO,
+  OBJECTIVES,
 };
