@@ -45,7 +45,11 @@ class Menu extends React.Component {
       }
     });
 
-    return cnt >= MIN_PLAYERS_TO_START_GAME && hasHuman;
+    return (
+      cnt >= MIN_PLAYERS_TO_START_GAME
+      && cnt <= MAX_PLAYERS_IN_SESSION
+      && hasHuman
+    );
   }
 
   render() {

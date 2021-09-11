@@ -21,4 +21,72 @@ describe('CanPlay tests', () => {
 
     expect(wrapper.instance().canPlay(props)).toBe(false);
   });
+
+  it('should return false when no human player is passed', async () => {
+    const props = {
+      players: [{ value: 'jogador_ia' }],
+    };
+
+    expect(wrapper.instance().canPlay(props)).toBe(false);
+  });
+
+  it('should return false when less than three players are passed', async () => {
+    const props = {
+      players: [{ value: 'jogador_ia' }, { value: 'humano' }],
+    };
+
+    expect(wrapper.instance().canPlay(props)).toBe(false);
+  });
+
+  it('should return false when less than three players are passed', async () => {
+    const props = {
+      players: [
+        { value: 'jogador_ia' },
+        { value: 'humano' },
+        { value: 'nao_participa' },
+      ],
+    };
+
+    expect(wrapper.instance().canPlay(props)).toBe(false);
+  });
+
+  it('should return true when more than three players are passed and at least one of them is a human player', async () => {
+    const props = {
+      players: [
+        { value: 'humano' },
+        { value: 'jogador_ia' },
+        { value: 'jogador_ia' },
+      ],
+    };
+
+    expect(wrapper.instance().canPlay(props)).toBe(true);
+  });
+
+  it('should return false when more than three players are passed but none of them is a human player', async () => {
+    const props = {
+      players: [
+        { value: 'jogador_ia' },
+        { value: 'jogador_ia' },
+        { value: 'jogador_ia' },
+      ],
+    };
+
+    expect(wrapper.instance().canPlay(props)).toBe(false);
+  });
+
+  it('should return false when more than six players are passed', async () => {
+    const props = {
+      players: [
+        { value: 'humano' },
+        { value: 'humano' },
+        { value: 'jogador_ia' },
+        { value: 'jogador_ia' },
+        { value: 'jogador_ia' },
+        { value: 'jogador_ia' },
+        { value: 'jogador_ia' },
+      ],
+    };
+
+    expect(wrapper.instance().canPlay(props)).toBe(false);
+  });
 });

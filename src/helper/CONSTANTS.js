@@ -24,8 +24,6 @@ import SC from '../assets/images/maps/sc.png';
 import SP from '../assets/images/maps/sp.png';
 import SE from '../assets/images/maps/se.png';
 import TO from '../assets/images/maps/to.png';
-// TODO: se forem utilizar estas divisas, falta preencher
-// Eu acho prático
 
 const ESTADOS_DA_FEDERACAO = {
   ac: {
