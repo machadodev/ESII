@@ -116,13 +116,13 @@ describe('onChangeValueHandler', () => {
     );
   });
 
-  it('should throw exception if value is not on the domain [nao_participa, humano, jogador_ia]', async () => {
+  it('should throw exception if value is not on the domain', async () => {
     expect(() => wrapper.instance().onChangeValueHandler(1, 'any')).toThrow(
       'value is not on the domain',
     );
   });
 
-  it('should not throw exception if value is on the domain [nao_participa, humano, jogador_ia]', async () => {
+  it('should not throw exception if value is on the domain', async () => {
     expect(
       wrapper
         .instance()
