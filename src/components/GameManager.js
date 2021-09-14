@@ -6,10 +6,10 @@ function GameManager(props) {
   const { match } = props;
 
   return (
-    <div className="100vh">
+    <div>
       <ListGroup
         as="ul"
-        className="navbar-nav mr-auto sidenav nav-scrollable players"
+        className=""
         key="players"
       >
         {match.players.map((playerInfo) => (

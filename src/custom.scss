@@ -1,82 +1,48 @@
-
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
 
-body, html {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    
-}
-
+html,
+body,
+.wrapper,
 #root {
-    width: 100%;
-    height: 100%;
-}
-
-.player-card {
-    width: 24rem;
-    height: 8rem;
+  height: 100%;
 }
 
 .App {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-image: url(assets/images/background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url(assets/images/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
 }
 
-// Inserido devido a criação do menu lateral
-// TODO: Refatorar
-
-@media (min-width: 992px) {
-    .sidenav {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 350px;
-      height: calc(100vh - 3.5rem);
-      margin-top: 3.5rem;
-      background: #343a40;
-      box-sizing: border-box;
-      border-top: 1px solid rgba(0, 0, 0, 0.3);
-    }
-  .navbar-expand-lg .sidenav {
-    flex-direction: column;
-  }
-
-  .content-wrapper {
-    margin-left: 230px;
-  }
+.game-map-container {
+  height: 100%;
 }
 
-.nav-link:hover {
-    transition: all 0.4s;
+.sidebar {
+  padding: 0 !important;
+  position: relative;
+  float: left;
+  height: 100%;
+  overflow-y: auto;
 }
-  
-.nav-link-collapse:after {
-    float: right;
-    content: '\f067';
-    font-family: 'FontAwesome';
+
+.main {
+  background-image: url(assets/images/maps/mapa_brasil.png);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
-  
-.nav-link-show:after {
-    float: right;
-    content: '\f068';
-    font-family: 'FontAwesome';
+
+.player-card {
+  width: 24rem;
+  height: 8rem;
 }
-  
-.nav-item ul.nav-second-level {
-    padding-left: 0;
-}
-  
-.nav-item ul.nav-second-level > .nav-item {
-    padding-left: 20px;
-}
-.nav-scrollable {
-    height:150px;
-    overflow-y: scroll;
+
+.play-icon {
+    margin: auto;
 }
