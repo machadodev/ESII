@@ -25,17 +25,21 @@ function Player(props) {
   return (
     <ListGroup.Item as="li" variant={playerInfo.color.variant}>
       <Container>
-        <Row>
-          <Col>
+        <Row className="py-2">
+          <Col xs={3} className="play-icon" align="right">
             <PlayerIcon archetype={playerInfo.archetype} />
           </Col>
-          <Col xs={10}> Exército {playerInfo.color.name}</Col>
+          <Col xs={9}>Exército {playerInfo.color.name}</Col>
+        </Row>
+        <Row>
           {estadosInfo.map((estadoInfo) => (
-            <EstadoFederacao
-              estadoInfo={estadoInfo}
-              playerInfo={playerInfo}
-              key={estadoInfo.estado.idEstado}
-            />
+            <Col xs={12}>
+              <EstadoFederacao
+                estadoInfo={estadoInfo}
+                playerInfo={playerInfo}
+                key={estadoInfo.estado.idEstado}
+              />
+            </Col>
           ))}
         </Row>
       </Container>

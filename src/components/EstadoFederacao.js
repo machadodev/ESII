@@ -18,16 +18,15 @@ function EstadoFederacao(props) {
       bg={playerInfo.color.variant}
       key={estadoInfo.estado.idEstado}
       text={playerInfo.color.variant === 'light' ? 'dark' : 'white'}
-      style={{ width: '18rem' }}
       className="mb-2"
     >
-      <Card.Header>
+      <Card.Header className="text-center">
         {`${estadoInfo.estado.sigla} - ${estadoInfo.estado.nome}`}
       </Card.Header>
       <Card.Body>
         <Container>
           <Row>
-            <Col>
+            <Col xs={4}>
               <MapaEstado estado={estadoInfo.estado} />
             </Col>
             <Col xs={8}>{`${estadoInfo.exercitos} Exércitos`}</Col>
