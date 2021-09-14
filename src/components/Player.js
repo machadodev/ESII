@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Col, ListGroup, Row } from 'react-bootstrap';
-import uuid from 'react-uuid';
 import PlayerIcon from './PlayerIcon';
 import EstadoFederacao from './EstadoFederacao';
 
@@ -18,7 +17,7 @@ function Player(props) {
         </Row>
         <Row>
           {playerInfo.estados.map((estadoInfo) => (
-            <Col xs={12} key={uuid()}>
+            <Col xs={12} key={estadoInfo.idEstado}>
               <EstadoFederacao
                 estadoInfo={estadoInfo}
                 playerInfo={playerInfo}
