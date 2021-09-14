@@ -36,7 +36,7 @@ class Menu extends React.Component {
       throw Error('id cannot be NaN');
     }
 
-    if (!validValues.includes(value)) {
+    if (!validValues.includes(value.value)) {
       throw Error('value is not on the domain');
     }
   };
