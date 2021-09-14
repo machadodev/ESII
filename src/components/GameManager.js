@@ -7,11 +7,7 @@ function GameManager(props) {
 
   return (
     <div>
-      <ListGroup
-        as="ul"
-        className=""
-        key="players"
-      >
+      <ListGroup as="ul">
         {match.players.map((playerInfo) => (
           <Player playerInfo={playerInfo} key={playerInfo.id} />
         ))}

@@ -16,7 +16,6 @@ function EstadoFederacao(props) {
   return (
     <Card
       bg={playerInfo.color.variant}
-      key={estadoInfo.estado.idEstado}
       text={playerInfo.color.variant === 'light' ? 'dark' : 'white'}
       className="mb-2"
     >
