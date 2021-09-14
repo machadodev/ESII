@@ -114,7 +114,11 @@ class Menu extends React.Component {
 
         <div className="row pt-4">
           <div className="col-md-12" align="center">
-            <ButtonWAR text="Jogar" disabled={!this.canPlay(this.state)} />
+            <ButtonWAR
+              text="Jogar"
+              players={this.state.players}
+              disabled={!this.canPlay(this.state)}
+            />
           </div>
         </div>
       </div>

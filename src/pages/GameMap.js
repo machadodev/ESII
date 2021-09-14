@@ -1,18 +1,22 @@
 import React from 'react';
 import { Col, Container, Navbar, Row } from 'react-bootstrap';
 import GameManager from '../components/GameManager';
-// import MapaBrasil from '../components/MapaBrasil';
 import { PLAYER_MATCH_INFO } from '../helper/CONSTANTS';
 
-function GameMap() {
+function GameMap(props) {
+  const { players } = props.location.state;
+  const parsedPlayers = [];
+
+  players.forEach((player, index) => {
+    parsedPlayers.push({
+      id: index,
+      color: Object.values(PLAYER_MATCH_INFO)[index],
+      archetype: player.label,
+    });
+  });
+
   const match = {
-    players: [
-      { id: 1, color: PLAYER_MATCH_INFO.red, archetype: 'human' },
-      { id: 2, color: PLAYER_MATCH_INFO.green, archetype: 'ia' },
-      { id: 3, color: PLAYER_MATCH_INFO.black, archetype: 'ia' },
-      { id: 4, color: PLAYER_MATCH_INFO.blue, archetype: 'ia' },
-      { id: 5, color: PLAYER_MATCH_INFO.yellow, archetype: 'ia' },
-    ],
+    players: parsedPlayers,
   };
 
   return (
