@@ -239,6 +239,21 @@ const ESTADOS_DA_FEDERACAO = {
 const MAX_PLAYERS_IN_SESSION = 6;
 const MIN_PLAYERS_TO_START_GAME = 3;
 
+const ARCHETYPE = {
+  ARTIFICIAL_INTELLIGENCE: {
+    value: 'IA',
+    label: 'IA',
+  },
+  HUMAN: {
+    value: 'human',
+    label: 'Humano',
+  },
+  NOT_PLAYABLE: {
+    value: 'not_playable',
+    label: 'Não Participa',
+  },
+};
+
 const PLAYER_MATCH_INFO = {
   blue: {
     index: 0,
@@ -277,4 +292,5 @@ export {
   MAX_PLAYERS_IN_SESSION,
   MIN_PLAYERS_TO_START_GAME,
   PLAYER_MATCH_INFO,
+  ARCHETYPE,
 };

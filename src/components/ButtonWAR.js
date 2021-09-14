@@ -14,7 +14,6 @@ function ButtonWAR(props) {
           players,
         },
       }}
-      teste="teste"
     >
       <Button
         disabled={disabled}

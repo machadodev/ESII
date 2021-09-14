@@ -11,7 +11,7 @@ function GameMap(props) {
     parsedPlayers.push({
       id: index,
       color: Object.values(PLAYER_MATCH_INFO)[index],
-      archetype: player.label,
+      archetype: player.value,
     });
   });
 

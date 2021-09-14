@@ -5,6 +5,7 @@ import Logo from './Logo';
 import ButtonWAR from './ButtonWAR';
 import PlayerSelector from './PlayerSelector';
 import {
+  ARCHETYPE,
   MAX_PLAYERS_IN_SESSION,
   MIN_PLAYERS_TO_START_GAME,
 } from '../helper/CONSTANTS';
@@ -18,7 +19,7 @@ class Menu extends React.Component {
   }
 
   validatePlayerSelection = (id, value) => {
-    const validValues = ['humano', 'jogador_ia', 'nao_participa'];
+    const validValues = Object.values(ARCHETYPE).map((v) => v.value);
 
     if (!id) {
       throw Error('id cannot be null');
@@ -64,10 +65,10 @@ class Menu extends React.Component {
     players.forEach((player) => {
       const type = player.value;
 
-      if (type === 'humano') {
+      if (type === ARCHETYPE.HUMAN.value) {
         hasHuman = true;
         cnt += 1;
-      } else if (type === 'jogador_ia') {
+      } else if (type === ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value) {
         cnt += 1;
       }
     });

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
-import ai from '../assets/images/icons/ai.png';
-import human from '../assets/images/icons/human.png';
+import ArtificialIntelligenceIcon from '../assets/images/icons/ai.png';
+import HumanIcon from '../assets/images/icons/human.png';
+import { ARCHETYPE } from '../helper/CONSTANTS';
 
 const img = function imgTag(altText, srcPath) {
   return <Image alt={altText} src={srcPath} width="16px" />;
@@ -9,8 +10,8 @@ const img = function imgTag(altText, srcPath) {
 
 function PlayerIcon(props) {
   const { archetype } = props;
-  if (archetype === 'ai') return img('Inteligência Artificial', ai);
-  return img('Jogador', human);
+  if (archetype === ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value) return img('Inteligência Artificial', ArtificialIntelligenceIcon);
+  return img('Jogador', HumanIcon);
 }
 
 export default PlayerIcon;
