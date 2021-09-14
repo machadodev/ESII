@@ -25,9 +25,15 @@ test('Check if Game Manager can render multiple players', async () => {
   };
   const { getByText } = await render(<GameManager match={match} />);
 
-  const player1 = getByText(`Exército ${PLAYER_MATCH_INFO.red.name}`);
-  const player2 = getByText(`Exército ${PLAYER_MATCH_INFO.green.name}`);
-  const player3 = getByText(`Exército ${PLAYER_MATCH_INFO.white.name}`);
+  const player1 = getByText(`Exército ${PLAYER_MATCH_INFO.red.name}`, {
+    exact: false,
+  });
+  const player2 = getByText(`Exército ${PLAYER_MATCH_INFO.green.name}`, {
+    exact: false,
+  });
+  const player3 = getByText(`Exército ${PLAYER_MATCH_INFO.white.name}`, {
+    exact: false,
+  });
   expect(player1).toBeInTheDocument();
   expect(player2).toBeInTheDocument();
   expect(player3).toBeInTheDocument();
