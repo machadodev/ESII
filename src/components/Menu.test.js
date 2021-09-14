@@ -2,6 +2,7 @@ import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, configure } from 'enzyme';
 import Menu from './Menu';
+import { MAX_PLAYERS_IN_SESSION } from '../helper/CONSTANTS';
 
 configure({ adapter: new Adapter() });
 
@@ -88,5 +89,49 @@ describe('CanPlay tests', () => {
     };
 
     expect(wrapper.instance().canPlay(props)).toBe(false);
+  });
+});
+
+describe('onChangeValueHandler', () => {
+  const wrapper = shallow(<Menu />);
+
+  it('should throw exception when id is null', async () => {
+    expect(() => wrapper.instance().onChangeValueHandler(null, 'any')).toThrow(
+      'id cannot be null',
+    );
+  });
+
+  it('should throw exception when value is null', async () => {
+    expect(() => wrapper.instance().onChangeValueHandler('any', null)).toThrow(
+      'value cannot be null',
+    );
+  });
+
+  it('should throw exception when id is NaN', async () => {
+    expect(() => wrapper.instance().onChangeValueHandler('any', 'any')).toThrow(
+      'id cannot be NaN',
+    );
+  });
+
+  it('should throw exception if value is not on the domain [nao_participa, humano, jogador_ia]', async () => {
+    expect(() => wrapper.instance().onChangeValueHandler(1, 'any')).toThrow(
+      'value is not on the domain',
+    );
+  });
+
+  it('should not throw exception if value is on the domain [nao_participa, humano, jogador_ia]', async () => {
+    expect(
+      wrapper.instance().onChangeValueHandler(1, 'humano'),
+    ).toBeUndefined();
+  });
+
+  it('should throw exception if id is out of range', async () => {
+    expect(() => wrapper
+      .instance()
+      .onChangeValueHandler(MAX_PLAYERS_IN_SESSION + 1, 'any')).toThrow('id cannot be out of range');
+
+    expect(() => wrapper.instance().onChangeValueHandler(-1, 'any')).toThrow(
+      'id cannot be out of range',
+    );
   });
 });

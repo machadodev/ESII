@@ -17,8 +17,35 @@ class Menu extends React.Component {
     };
   }
 
+  validatePlayerSelection = (id, value) => {
+    const validValues = ['humano', 'jogador_ia', 'nao_participa'];
+
+    if (!id) {
+      throw Error('id cannot be null');
+    }
+
+    if (!value) {
+      throw Error('value cannot be null');
+    }
+
+    if (id < 1 || id > MAX_PLAYERS_IN_SESSION) {
+      throw Error('id cannot be out of range');
+    }
+
+    if (!Number.isInteger(id)) {
+      throw Error('id cannot be NaN');
+    }
+
+    if (!validValues.includes(value)) {
+      throw Error('value is not on the domain');
+    }
+  };
+
   onChangeValueHandler = (id, value) => {
+    this.validatePlayerSelection(id, value);
+
     const { players } = this.state;
+
     players[id - 1] = value;
 
     this.setState({ players });
