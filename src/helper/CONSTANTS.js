@@ -245,30 +245,30 @@ const PLAYER_MATCH_INFO = {
     name: 'Azul',
     variant: 'primary',
   },
-  black: {
-    index: 1,
-    name: 'Preto',
-    variant: 'secondary',
-  },
   green: {
-    index: 2,
+    index: 1,
     name: 'Verde',
     variant: 'success',
   },
   red: {
-    index: 3,
+    index: 2,
     name: 'Vermelho',
     variant: 'danger',
   },
   yellow: {
-    index: 4,
+    index: 3,
     name: 'Amarelo',
     variant: 'warning',
   },
   white: {
-    index: 5,
+    index: 4,
     name: 'Branco',
     variant: 'light',
+  },
+  black: {
+    index: 5,
+    name: 'Preto',
+    variant: 'secondary',
   },
 };
 
