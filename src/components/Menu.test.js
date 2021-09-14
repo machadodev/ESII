@@ -2,7 +2,7 @@ import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, configure } from 'enzyme';
 import Menu from './Menu';
-import { MAX_PLAYERS_IN_SESSION } from '../helper/CONSTANTS';
+import { ARCHETYPE, MAX_PLAYERS_IN_SESSION } from '../helper/CONSTANTS';
 
 configure({ adapter: new Adapter() });
 
@@ -25,15 +25,7 @@ describe('CanPlay tests', () => {
 
   it('should return false when no human player is passed', async () => {
     const props = {
-      players: [{ value: 'jogador_ia' }],
-    };
-
-    expect(wrapper.instance().canPlay(props)).toBe(false);
-  });
-
-  it('should return false when less than three players are passed', async () => {
-    const props = {
-      players: [{ value: 'jogador_ia' }, { value: 'humano' }],
+      players: [{ value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value }],
     };
 
     expect(wrapper.instance().canPlay(props)).toBe(false);
@@ -42,9 +34,20 @@ describe('CanPlay tests', () => {
   it('should return false when less than three players are passed', async () => {
     const props = {
       players: [
-        { value: 'jogador_ia' },
-        { value: 'humano' },
-        { value: 'nao_participa' },
+        { value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value },
+        { value: ARCHETYPE.HUMAN.value },
+      ],
+    };
+
+    expect(wrapper.instance().canPlay(props)).toBe(false);
+  });
+
+  it('should return false when less than three players are passed', async () => {
+    const props = {
+      players: [
+        { value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value },
+        { value: ARCHETYPE.HUMAN.value },
+        { value: ARCHETYPE.NOT_PLAYABLE.value },
       ],
     };
 
@@ -54,9 +57,9 @@ describe('CanPlay tests', () => {
   it('should return true when more than three players are passed and at least one of them is a human player', async () => {
     const props = {
       players: [
-        { value: 'humano' },
-        { value: 'jogador_ia' },
-        { value: 'jogador_ia' },
+        { value: ARCHETYPE.HUMAN.value },
+        { value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value },
+        { value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value },
       ],
     };
 
@@ -66,9 +69,9 @@ describe('CanPlay tests', () => {
   it('should return false when more than three players are passed but none of them is a human player', async () => {
     const props = {
       players: [
-        { value: 'jogador_ia' },
-        { value: 'jogador_ia' },
-        { value: 'jogador_ia' },
+        { value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value },
+        { value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value },
+        { value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value },
       ],
     };
 
@@ -78,13 +81,13 @@ describe('CanPlay tests', () => {
   it('should return false when more than six players are passed', async () => {
     const props = {
       players: [
-        { value: 'humano' },
-        { value: 'humano' },
-        { value: 'jogador_ia' },
-        { value: 'jogador_ia' },
-        { value: 'jogador_ia' },
-        { value: 'jogador_ia' },
-        { value: 'jogador_ia' },
+        { value: ARCHETYPE.HUMAN.value },
+        { value: ARCHETYPE.HUMAN.value },
+        { value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value },
+        { value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value },
+        { value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value },
+        { value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value },
+        { value: ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value },
       ],
     };
 
@@ -113,15 +116,17 @@ describe('onChangeValueHandler', () => {
     );
   });
 
-  it('should throw exception if value is not on the domain [nao_participa, humano, jogador_ia]', async () => {
+  it('should throw exception if value is not on the domain', async () => {
     expect(() => wrapper.instance().onChangeValueHandler(1, 'any')).toThrow(
       'value is not on the domain',
     );
   });
 
-  it('should not throw exception if value is on the domain [nao_participa, humano, jogador_ia]', async () => {
+  it('should not throw exception if value is on the domain', async () => {
     expect(
-      wrapper.instance().onChangeValueHandler(1, { value: 'humano' }),
+      wrapper
+        .instance()
+        .onChangeValueHandler(1, { value: ARCHETYPE.HUMAN.value }),
     ).toBeUndefined();
   });
 
@@ -129,7 +134,6 @@ describe('onChangeValueHandler', () => {
     expect(() => wrapper
       .instance()
       .onChangeValueHandler(MAX_PLAYERS_IN_SESSION + 1, 'any')).toThrow('id cannot be out of range');
-
     expect(() => wrapper.instance().onChangeValueHandler(-1, 'any')).toThrow(
       'id cannot be out of range',
     );
