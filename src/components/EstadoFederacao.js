@@ -25,16 +25,14 @@ function EstadoFederacao(props) {
         {`${estadoInfo.estado.sigla} - ${estadoInfo.estado.nome}`}
       </Card.Header>
       <Card.Body>
-        <Card.Text>
-          <Container>
-            <Row>
-              <Col>
-                <MapaEstado estado={estadoInfo.estado} />
-              </Col>
-              <Col xs={8}>{`${estadoInfo.exercitos} Exércitos`}</Col>
-            </Row>
-          </Container>
-        </Card.Text>
+        <Container>
+          <Row>
+            <Col>
+              <MapaEstado estado={estadoInfo.estado} />
+            </Col>
+            <Col xs={8}>{`${estadoInfo.exercitos} Exércitos`}</Col>
+          </Row>
+        </Container>
       </Card.Body>
     </Card>
   );
