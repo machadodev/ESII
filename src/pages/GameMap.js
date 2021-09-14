@@ -1,6 +1,7 @@
 import React from 'react';
 import GameManager from '../components/GameManager';
 import MapaBrasil from '../components/MapaBrasil';
+import ModalAtacar from '../components/ModalAtacar';
 import { PLAYER_MATCH_INFO } from '../helper/CONSTANTS';
 
 function GameMap() {
@@ -20,6 +21,7 @@ function GameMap() {
             <div className="d-flex flex-column">
               <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
                 <h1 className="navbar-brand">War: Mapa do Brasil</h1>
+                <ModalAtacar />
                 <GameManager match={match} />
               </nav>
               <main className="content-wrapper">
