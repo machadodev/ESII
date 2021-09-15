@@ -23,7 +23,12 @@ test('Check if Game Manager can render multiple players', async () => {
       },
     ],
   };
-  const { getByText } = await render(<GameManager match={match} />);
+
+  const onPlayerTurn = jest.fn();
+
+  const { getByText } = await render(
+    <GameManager match={match} onPlayerTurn={onPlayerTurn} />,
+  );
 
   const player1 = getByText(`Exército ${PLAYER_MATCH_INFO.red.name}`, {
     exact: false,
