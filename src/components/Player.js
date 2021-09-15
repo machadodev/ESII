@@ -13,7 +13,10 @@ function Player(props) {
           <Col xs={3} className="play-icon" align="right">
             <PlayerIcon archetype={playerInfo.archetype} />
           </Col>
-          <Col xs={9}>Exército {playerInfo.color.name}</Col>
+          <Col xs={9}>
+            Exército {playerInfo.color.name} - <b>{playerInfo.exercitos}</b>{' '}
+            tropa(s)
+          </Col>
         </Row>
         <Row>
           {playerInfo.estados.map((estadoInfo) => (

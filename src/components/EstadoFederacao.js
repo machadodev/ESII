@@ -20,7 +20,7 @@ function EstadoFederacao(props) {
             <Col xs={4}>
               <MapaEstado estado={estadoInfo} />
             </Col>
-            <Col xs={8}>0 Exército</Col>
+            <Col xs={8}>{estadoInfo.tropas} tropa(s)</Col>
           </Row>
         </Container>
       </Card.Body>

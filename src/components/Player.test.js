@@ -18,6 +18,8 @@ test('Check if Player card render correctly', async () => {
   };
   const { getByText } = await render(<Player playerInfo={playerInfo} />);
 
-  const player = getByText(`Exército ${playerInfo.color.name}`);
+  const player = getByText(`Exército ${playerInfo.color.name}`, {
+    exact: false,
+  });
   expect(player).toBeInTheDocument();
 });
