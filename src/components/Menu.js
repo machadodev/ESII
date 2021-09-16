@@ -5,6 +5,7 @@ import Logo from './Logo';
 import ButtonWAR from './ButtonWAR';
 import PlayerSelector from './PlayerSelector';
 import {
+  ARCHETYPE,
   MAX_PLAYERS_IN_SESSION,
   MIN_PLAYERS_TO_START_GAME,
 } from '../helper/CONSTANTS';
@@ -17,8 +18,35 @@ class Menu extends React.Component {
     };
   }
 
+  validatePlayerSelection = (id, value) => {
+    const validValues = Object.values(ARCHETYPE).map((v) => v.value);
+
+    if (!id) {
+      throw Error('id cannot be null');
+    }
+
+    if (!value) {
+      throw Error('value cannot be null');
+    }
+
+    if (id < 1 || id > MAX_PLAYERS_IN_SESSION) {
+      throw Error('id cannot be out of range');
+    }
+
+    if (!Number.isInteger(id)) {
+      throw Error('id cannot be NaN');
+    }
+
+    if (!validValues.includes(value.value)) {
+      throw Error('value is not on the domain');
+    }
+  };
+
   onChangeValueHandler = (id, value) => {
+    this.validatePlayerSelection(id, value);
+
     const { players } = this.state;
+
     players[id - 1] = value;
 
     this.setState({ players });
@@ -37,10 +65,10 @@ class Menu extends React.Component {
     players.forEach((player) => {
       const type = player.value;
 
-      if (type === 'humano') {
+      if (type === ARCHETYPE.HUMAN.value) {
         hasHuman = true;
         cnt += 1;
-      } else if (type === 'jogador_ia') {
+      } else if (type === ARCHETYPE.ARTIFICIAL_INTELLIGENCE.value) {
         cnt += 1;
       }
     });
@@ -87,7 +115,11 @@ class Menu extends React.Component {
 
         <div className="row pt-4">
           <div className="col-md-12" align="center">
-            <ButtonWAR text="Jogar" disabled={!this.canPlay(this.state)} />
+            <ButtonWAR
+              text="Jogar"
+              players={this.state.players}
+              disabled={!this.canPlay(this.state)}
+            />
           </div>
         </div>
       </div>

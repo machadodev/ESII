@@ -239,6 +239,22 @@ const ESTADOS_DA_FEDERACAO = {
 const MAX_ARMIES_IN_ASSAULT = 3;
 const MAX_PLAYERS_IN_SESSION = 6;
 const MIN_PLAYERS_TO_START_GAME = 3;
+const INITIAL_NUMBER_OF_TROOPS = 1;
+
+const ARCHETYPE = {
+  ARTIFICIAL_INTELLIGENCE: {
+    value: 'IA',
+    label: 'IA',
+  },
+  HUMAN: {
+    value: 'human',
+    label: 'Humano',
+  },
+  NOT_PLAYABLE: {
+    value: 'not_playable',
+    label: 'Não Participa',
+  },
+};
 
 const PLAYER_MATCH_INFO = {
   blue: {
@@ -246,30 +262,30 @@ const PLAYER_MATCH_INFO = {
     name: 'Azul',
     variant: 'primary',
   },
-  black: {
-    index: 1,
-    name: 'Preto',
-    variant: 'secondary',
-  },
   green: {
-    index: 2,
+    index: 1,
     name: 'Verde',
     variant: 'success',
   },
   red: {
-    index: 3,
+    index: 2,
     name: 'Vermelho',
     variant: 'danger',
   },
   yellow: {
-    index: 4,
+    index: 3,
     name: 'Amarelo',
     variant: 'warning',
   },
   white: {
-    index: 5,
+    index: 4,
     name: 'Branco',
     variant: 'light',
+  },
+  black: {
+    index: 5,
+    name: 'Preto',
+    variant: 'secondary',
   },
 };
 
@@ -282,4 +298,6 @@ export {
   MIN_PLAYERS_TO_START_GAME,
   PLAYER_MATCH_INFO,
   TXT_BTN_ATTACK,
+  ARCHETYPE,
+  INITIAL_NUMBER_OF_TROOPS,
 };

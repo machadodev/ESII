@@ -4,10 +4,17 @@ import { Link } from 'react-router-dom';
 
 // Botão  WAR
 function ButtonWAR(props) {
-  const { text, disabled } = props;
+  const { text, players, disabled } = props;
 
   return (
-    <Link to="/game">
+    <Link
+      to={{
+        pathname: '/game',
+        state: {
+          players,
+        },
+      }}
+    >
       <Button
         disabled={disabled}
         style={{ width: '24rem' }}

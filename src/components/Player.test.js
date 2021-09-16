@@ -1,16 +1,25 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import Player from './Player';
-import { PLAYER_MATCH_INFO } from '../helper/CONSTANTS';
+import {
+  ARCHETYPE,
+  PLAYER_MATCH_INFO,
+  MAX_PLAYERS_IN_SESSION,
+  ESTADOS_DA_FEDERACAO,
+} from '../helper/CONSTANTS';
 
 test('Check if Player card render correctly', async () => {
+  const estadoInfo = ESTADOS_DA_FEDERACAO.sp;
   const playerInfo = {
-    id: 1,
-    color: PLAYER_MATCH_INFO.red,
-    playerType: 'human',
+    id: MAX_PLAYERS_IN_SESSION - 1,
+    color: PLAYER_MATCH_INFO.black,
+    archetype: ARCHETYPE.HUMAN.value,
+    estados: [estadoInfo],
   };
   const { getByText } = await render(<Player playerInfo={playerInfo} />);
 
-  const player = getByText(`Exército ${playerInfo.color.name}`);
+  const player = getByText(`Exército ${playerInfo.color.name}`, {
+    exact: false,
+  });
   expect(player).toBeInTheDocument();
 });
