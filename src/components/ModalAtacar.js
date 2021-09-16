@@ -46,7 +46,7 @@ function ModalAtacar() {
   const [alvoAtual, setAlvo] = useState(
     ESTADOS_DA_FEDERACAO[estadoInfoAtual.estado.divisas[0]],
   );
-  const [currentTroops, setTroops] = useState(estadoInfoAtual.exercitos - 1);
+  const [currentTroops, setTroops] = useState(estadoInfoAtual.exercitos);
   const player = { id: 1, color: PLAYER_MATCH_INFO.red, archetype: 'human' };
 
   function handleShow(breakpoint) {
@@ -57,7 +57,7 @@ function ModalAtacar() {
   const changeEstadoFederacaoPlayer = (eventkey) => {
     setEstadoInfoAtual(estadosInfo[eventkey]);
     setAlvo(ESTADOS_DA_FEDERACAO[estadoInfoAtual.estado.divisas[0]]);
-    setTroops(estadoInfoAtual.exercitos - 1);
+    setTroops(estadoInfoAtual.exercitos);
   };
 
   const changeAlvo = (eventkey) => {
@@ -101,10 +101,10 @@ function ModalAtacar() {
           <Modal.Title>Atacar!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AttackDescription playerInfo={player} />
           <Container>
+            <AttackDescription playerInfo={player} />
             <Row>
-              <Card className="col-4">
+              <Card className="col-4" key="attack-select-origin">
                 <Card.Body>
                   <Card.Title>Selecionar Origem</Card.Title> <br />
                   <Card.Subtitle className="mb-2 text-muted">
@@ -125,12 +125,12 @@ function ModalAtacar() {
                   </DropdownButton>
                   <br />
                   <EstadoFederacao
-                    estadoInfo={estadoInfoAtual}
+                    estadoInfo={estadoInfoAtual.estado}
                     playerInfo={player}
                   />
                 </Card.Body>
               </Card>
-              <Card className="col-4">
+              <Card className="col-4" key="attack-select-destiny">
                 <Card.Body>
                   <Card.Title>Selecionar Selecionar Destino</Card.Title> <br />
                   <Card.Subtitle className="mb-2 text-muted">
@@ -176,7 +176,7 @@ function ModalAtacar() {
                   </Row>
                 </Card.Body>
               </Card>
-              <Card className="col-4">
+              <Card className="col-4" key="exec-attack">
                 <Card.Body>
                   <Card.Title>Atacar</Card.Title> <br />
                   <Card.Subtitle className="mb-2 text-muted">
