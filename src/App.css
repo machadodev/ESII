@@ -13,6 +13,10 @@ Use a better box model (opinionated).
 ::after {
 	box-sizing: border-box;
 }
+
+#comboTropa {
+	color: black;
+}
 /**
 Use a more readable tab size (opinionated).
 */
