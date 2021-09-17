@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Row from 'react-bootstrap/Row';
+import uuid from 'react-uuid';
 import EstadoFederacao from './EstadoFederacao';
 // import AttackStateSelector from './Attack/AttStateSelector';
 import AttackDescription from './AttackDescription';
@@ -16,6 +17,7 @@ import {
   MAX_ARMIES_IN_ASSAULT,
   PLAYER_MATCH_INFO,
   TXT_BTN_ATTACK,
+  ARCHETYPE,
 } from '../helper/CONSTANTS';
 import ButtonAttack from './ButtonAttack';
 
@@ -47,7 +49,12 @@ function ModalAtacar() {
     ESTADOS_DA_FEDERACAO[estadoInfoAtual.estado.divisas[0]],
   );
   const [currentTroops, setTroops] = useState(estadoInfoAtual.exercitos);
-  const player = { id: 1, color: PLAYER_MATCH_INFO.red, archetype: 'human' };
+  const player = {
+    id: 1,
+    color: PLAYER_MATCH_INFO.red,
+    archetype: ARCHETYPE.HUMAN.value,
+    exercitos: 1,
+  };
 
   function handleShow(breakpoint) {
     setFullscreen(breakpoint);
@@ -114,11 +121,11 @@ function ModalAtacar() {
                   <DropdownButton
                     variant={player.color.variant}
                     title="Selecionar Tropas"
-                    key={player.color.name}
+                    key={uuid()}
                     onSelect={changeEstadoFederacaoPlayer}
                   >
                     {estadosInfo.map((estadoInfo, idx) => (
-                      <Dropdown.Item key={estadoInfo.estado.id} eventKey={idx}>
+                      <Dropdown.Item key={uuid()} eventKey={idx}>
                         {estadoInfo.estado.nome}
                       </Dropdown.Item>
                     ))}
@@ -164,7 +171,7 @@ function ModalAtacar() {
                       <DropdownButton
                         variant={player.color.variant}
                         title="Selecionar Força"
-                        key="exercitos"
+                        key={uuid()}
                         onSelect={changeCurrentTrooperCount}
                       >
                         {troopersList(estadoInfoAtual.exercitos)}

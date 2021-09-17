@@ -14,6 +14,7 @@ test('Can render component on screen', async () => {
     color: PLAYER_MATCH_INFO.blue,
     playerType: ARCHETYPE.HUMAN.value,
     estados: [estadoInfo],
+    exercitos: 1,
   };
   const { getByText } = await render(
     <AttackDescription playerInfo={playerInfo} />,
