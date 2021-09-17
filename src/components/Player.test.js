@@ -15,9 +15,12 @@ test('Check if Player card render correctly', async () => {
     color: PLAYER_MATCH_INFO.black,
     archetype: ARCHETYPE.HUMAN.value,
     estados: [estadoInfo],
+    exercitos: 1,
   };
   const { getByText } = await render(<Player playerInfo={playerInfo} />);
 
-  const player = getByText(`Exército ${playerInfo.color.name}`);
+  const player = getByText(`Exército ${playerInfo.color.name}`, {
+    exact: false,
+  });
   expect(player).toBeInTheDocument();
 });

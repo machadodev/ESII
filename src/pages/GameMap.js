@@ -1,6 +1,7 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { Col, Container, Navbar, Row } from 'react-bootstrap';
 import GameManager from '../components/GameManager';
+import ModalAtacar from '../components/ModalAtacar';
 import { PLAYER_MATCH_INFO } from '../helper/CONSTANTS';
 
 function GameMap(props) {
@@ -19,10 +20,17 @@ function GameMap(props) {
     players: parsedPlayers,
   };
 
+  const [bgNavBarColor, SetBgNavBarColor] = useState('dark');
+
+  const changeNavbarColorHandler = (color) => {
+    SetBgNavBarColor(color.variant);
+  };
+
   return (
     <div className="wrapper">
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg={bgNavBarColor} variant="dark" key={bgNavBarColor}>
         <Container>
+          <ModalAtacar />
           <Navbar.Collapse className="justify-content-center">
             <Navbar.Text className="text-light">War 1 - Brasil</Navbar.Text>
           </Navbar.Collapse>
@@ -32,7 +40,10 @@ function GameMap(props) {
         <Row className="h-100">
           <Col xs={3} className="sidebar">
             <nav>
-              <GameManager match={match} />
+              <GameManager
+                match={match}
+                onPlayerTurn={changeNavbarColorHandler}
+              />
             </nav>
           </Col>
           <Col xs={9} className="main" />

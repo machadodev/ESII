@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import EstadoFederacao from './EstadoFederacao';
+import AttackDescription from './AttackDescription';
 import {
   ARCHETYPE,
   ESTADOS_DA_FEDERACAO,
@@ -17,9 +17,11 @@ test('Can render component on screen', async () => {
     exercitos: 1,
   };
   const { getByText } = await render(
-    <EstadoFederacao estadoInfo={estadoInfo} playerInfo={playerInfo} />,
+    <AttackDescription playerInfo={playerInfo} />,
   );
 
-  const estadoTeste = getByText(`${estadoInfo.sigla} - ${estadoInfo.nome}`);
-  expect(estadoTeste).toBeInTheDocument();
+  const descriptionTest = getByText(
+    `Comandante, é hora do exercito ${playerInfo.color.name} atacar!`,
+  );
+  expect(descriptionTest).toBeInTheDocument();
 });
